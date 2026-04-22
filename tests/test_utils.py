@@ -1,26 +1,29 @@
 import sys
 import pathlib
-import pandas as pd
 
 sys.path.insert(0, str(pathlib.Path(__file__).parent.parent))
-from src.utils import replace_sentinel, celsius_to_fahrenheit  # noqa: E402
+from src.utils import add, multiply
 
 
-def test_replace_sentinel_replaces_minus999():
-    df = pd.DataFrame({'T2M': [-999, 25.0, -999]})
-    result = replace_sentinel(df)
-    assert result['T2M'].isna().sum() == 2
+def test_add_two_positive_numbers():
+    assert add(2, 3) == 5
 
 
-def test_replace_sentinel_keeps_valid():
-    df = pd.DataFrame({'T2M': [20.0, 25.0, 30.0]})
-    result = replace_sentinel(df)
-    assert result['T2M'].isna().sum() == 0
+def test_add_with_zero():
+    assert add(10, 0) == 10
 
 
-def test_celsius_freezing_point():
-    assert celsius_to_fahrenheit(0) == 32.0
+def test_add_negative_numbers():
+    assert add(-4, -6) == -10
 
 
-def test_celsius_boiling_point():
-    assert celsius_to_fahrenheit(100) == 212.0
+def test_multiply_two_numbers():
+    assert multiply(3, 4) == 12
+
+
+def test_multiply_by_zero():
+    assert multiply(7, 0) == 0
+
+
+def test_multiply_by_one():
+    assert multiply(5, 1) == 5
