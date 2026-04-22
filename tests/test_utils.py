@@ -3,8 +3,7 @@ import pathlib
 import pandas as pd
 
 sys.path.insert(0, str(pathlib.Path(__file__).parent.parent))
-from src.utils import replace_sentinel, celsius_to_fahrenheit
-
+from src.utils import replace_sentinel, celsius_to_fahrenheit  # noqa: E402
 
 
 def test_replace_sentinel_replaces_minus999():
