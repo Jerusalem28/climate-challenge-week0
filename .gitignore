@@ -3,7 +3,7 @@
 venv/
 env/
 ENV/
-
+__MACOSX/
 # ── Secrets — NEVER commit these ───────────────────────────────
 .env
 .env.*
